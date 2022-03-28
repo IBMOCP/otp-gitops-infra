@@ -1,13 +1,8 @@
 infrastructureId: ""
 
 cloudProvider:
-<<<<<<< HEAD
-  name: "" # aws, azure or vsphere
-  managed: false
-=======
   name: "" # aws, azure, ibmcloud or vsphere
   managed: false # for roks, aro, rosa set to true
->>>>>>> b2c34012b01c643247eb381ce28cf22cfce223e7
 
 vsphere:
   networkName: 
