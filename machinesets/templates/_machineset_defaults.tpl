@@ -37,6 +37,17 @@ Default MachineSet Replica Count
 {{- default "0" .Values.vsphere.cloudpakNodes.nodeCount }}
 {{- end -}}
 {{- end -}}
+{{- if eq $.Values.cloudProvider.name "ibmcloud" -}}
+{{- if eq .Name "storage" -}}
+{{- default "1" .Values.cloud.storageNodes.nodeCount }}
+{{- end -}}
+{{- if eq .Name "infra" -}}
+{{- default "1" .Values.cloud.infraNodes.nodeCount }}
+{{- end -}}
+{{- if eq .Name "cp4x" -}}
+{{- default "0" .Values.cloud.cloudpakNodes.nodeCount }}
+{{- end -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
@@ -67,6 +78,20 @@ Default Node Sizes
 {{- default "Standard_D8s_v3" .Values.cloud.cloudpakNodes.instanceType }}
 {{- end -}}
 {{- end -}}
+<<<<<<< HEAD
+=======
+{{- if eq $.Values.cloudProvider.name "ibmcloud" -}}
+{{- if eq .Name "storage" -}}
+{{- default "bx2d-16x64" .Values.cloud.storageNodes.instanceType }}
+{{- end -}}
+{{- if eq .Name "infra" -}}
+{{- default "bx2d-4x16" .Values.cloud.infraNodes.instanceType }}
+{{- end -}}
+{{- if eq .Name "cp4x" -}}
+{{- default "bx2d-8x32" .Values.cloud.cloudpakNodes.instanceType }}
+{{- end -}}
+{{- end -}}
+>>>>>>> b2c34012b01c643247eb381ce28cf22cfce223e7
 {{- end -}}
 
 
